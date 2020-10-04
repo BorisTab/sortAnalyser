@@ -16,7 +16,7 @@ int main() {
         delete graphic[i];
     }
 
-    delete [] graphic;
+    delete[] graphic;
     guiThread.join();
 
     return 0;

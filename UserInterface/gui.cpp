@@ -23,20 +23,19 @@ UserInterface::UserInterface(size_t uiWidth, size_t uiHeight):
 void UserInterface::makeButtons() {
     buttons = new Button*[buttonsCount];
 
-    buttons[0] = new BubbleSortButton;;
-    buttons[1] = new MergeSortButton;
+    buttons[0] = new BubbleSortButton("Bubble sort");
+    buttons[1] = new MergeSortButton("Merge sort");
+    buttons[2] = new QuickSortButton("Quick sort");
 
-    size_t buttonPos = 30;
+    size_t buttonPosX = ButtonsValues::buttonDistance;
     for (int i = 0; i < buttonsCount; ++i) {
         buttons[i]->setColor(Colors::orange);
-        buttons[i]->setSize(150, 50);
+        buttons[i]->setSize(ButtonsValues::buttonWidth, ButtonsValues::buttonHeight);
+        buttons[i]->setPosition(buttonPosX, uiHeight - ButtonsValues::buttonDownOffset);
+        buttons[i]->setName(Paths::fontFilePath, sf::Color::Black);
 
-        buttons[i]->setPosition(buttonPos, uiHeight - 80);
-        buttonPos += 150 + 30;
+        buttonPosX += ButtonsValues::buttonWidth + ButtonsValues::buttonDistance;
     }
-
-    buttons[0]->setText("Bubble sort", Paths::fontFilePath, sf::Color::Black);
-    buttons[1]->setText("Merge sort",  Paths::fontFilePath, sf::Color::Black);
 }
 
 void UserInterface::checkButtonsClick() {

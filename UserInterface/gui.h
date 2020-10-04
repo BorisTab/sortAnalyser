@@ -18,7 +18,7 @@ private:
     const size_t uiWidth = 1200;
     const size_t uiHeight = 600;
     sf::RenderWindow window;
-    const size_t buttonsCount = 2;
+    const size_t buttonsCount = 3;
 
     Button** buttons = nullptr;
 

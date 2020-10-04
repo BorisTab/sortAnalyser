@@ -46,6 +46,10 @@ void Button::setText(const char *str, const char *fontFile, const sf::Color &col
     text.move(xOffset, yOffset);
 }
 
+void Button::setName(const char *fontFile, const sf::Color &color) {
+    setText(name, fontFile, color);
+}
+
 bool Button::containMouse(const sf::Window& window) {
     sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
 
@@ -58,10 +62,20 @@ bool Button::containMouse(const sf::Window& window) {
     return false;
 }
 
+Button::Button(const char *name): name(name) {}
+
+BubbleSortButton::BubbleSortButton(const char *name): Button(name) {}
+MergeSortButton:: MergeSortButton(const char *name):  Button(name) {}
+QuickSortButton:: QuickSortButton(const char *name):  Button(name) {}
+
 void BubbleSortButton::onClick() {
     printf("Bubble sort!!!\n");
 }
 
 void MergeSortButton::onClick() {
     printf("Merge Sort!!!\n");
+}
+
+void QuickSortButton::onClick() {
+    printf("Quick Sort!!!\n");
 }
